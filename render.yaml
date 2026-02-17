@@ -1,0 +1,35 @@
+services:
+  # Backend API Service
+  - type: web
+    name: asg-loyalty-backend
+    env: python
+    region: oregon
+    plan: free
+    rootDir: backend
+    buildCommand: "pip install -r requirements.txt && python seed.py"
+    startCommand: "uvicorn app.main:app --host 0.0.0.0 --port $PORT"
+    healthCheckPath: /health
+    envVars:
+      - key: DATABASE_URL
+        value: sqlite:///./loyalty.db
+      - key: CORS_ORIGINS
+        value: https://asg-loyalty-frontend.onrender.com,http://localhost:3000
+      - key: JWT_SECRET_KEY
+        generateValue: true
+      - key: ENVIRONMENT
+        value: production
+
+  # Frontend Service
+  - type: web
+    name: asg-loyalty-frontend
+    env: node
+    region: oregon
+    plan: free
+    rootDir: frontend
+    buildCommand: "npm ci && npm run build"
+    startCommand: "npm start"
+    envVars:
+      - key: NEXT_PUBLIC_API_URL
+        value: https://asg-loyalty-backend.onrender.com
+      - key: NODE_ENV
+        value: production

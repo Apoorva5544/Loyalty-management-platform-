@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Store | Loyalty Demo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-900 min-h-screen">
+    <!-- Navigation -->
+    <nav class="glass sticky top-0 z-50 border-b border-slate-200 px-8 py-4 flex justify-between items-center">
+        <div class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+            LUXE STORE
+        </div>
+        <div class="flex gap-8 text-sm font-medium text-slate-600">
+            <a href="#" class="hover:text-blue-600 transition-colors">Shop</a>
+            <a href="#" class="hover:text-blue-600 transition-colors">Collections</a>
+            <a href="#" class="hover:text-blue-600 transition-colors">About</a>
+        </div>
+        <div id="user-status"
+            class="text-sm font-semibold text-blue-600 bg-blue-50 px-4 py-2 rounded-full border border-blue-100">
+            Guest User
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="max-w-7xl mx-auto px-8 py-20 text-center">
+        <h1 class="text-6xl font-bold mb-6 leading-tight">Elevate Your Lifestyle<br>With Premium Goods.</h1>
+        <p class="text-slate-500 text-lg max-w-2xl mx-auto mb-10">Experience the finest craftsmanship and timeless
+            design. Join our loyalty program to earn exclusive rewards on every purchase.</p>
+        <div class="flex justify-center gap-4">
+            <button onclick="simulateLogin()"
+                class="bg-slate-900 text-white px-8 py-4 rounded-xl font-bold hover:bg-slate-800 transition-all shadow-lg shadow-slate-200">
+                Sign In to Earn
+            </button>
+            <button
+                class="bg-white text-slate-900 border border-slate-200 px-8 py-4 rounded-xl font-bold hover:bg-slate-50 transition-all">
+                Explore Collection
+            </button>
+        </div>
+    </header>
+
+    <!-- Product Grid -->
+    <main class="max-w-7xl mx-auto px-8 pb-20">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Product 1 -->
+            <div
+                class="bg-white rounded-3xl p-6 border border-slate-100 shadow-sm hover:shadow-xl transition-all group">
+                <div class="aspect-square bg-slate-100 rounded-2xl mb-6 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80"
+                        alt="Product"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <h3 class="text-xl font-bold mb-2">Minimalist Watch</h3>
+                <p class="text-slate-500 text-sm mb-4">Timeless design meets modern precision.</p>
+                <div class="flex justify-between items-center">
+                    <span class="text-2xl font-bold">₹12,500</span>
+                    <button onclick="buyProduct(12500)"
+                        class="bg-blue-600 text-white px-6 py-2 rounded-lg font-bold hover:bg-blue-700 transition-colors">
+                        Buy Now
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div
+                class="bg-white rounded-3xl p-6 border border-slate-100 shadow-sm hover:shadow-xl transition-all group">
+                <div class="aspect-square bg-slate-100 rounded-2xl mb-6 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80"
+                        alt="Product"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <h3 class="text-xl font-bold mb-2">Premium Headphones</h3>
+                <p class="text-slate-500 text-sm mb-4">Immersive sound, ultimate comfort.</p>
+                <div class="flex justify-between items-center">
+                    <span class="text-2xl font-bold">₹24,999</span>
+                    <button onclick="buyProduct(24999)"
+                        class="bg-blue-600 text-white px-6 py-2 rounded-lg font-bold hover:bg-blue-700 transition-colors">
+                        Buy Now
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div
+                class="bg-white rounded-3xl p-6 border border-slate-100 shadow-sm hover:shadow-xl transition-all group">
+                <div class="aspect-square bg-slate-100 rounded-2xl mb-6 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=800&q=80"
+                        alt="Product"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <h3 class="text-xl font-bold mb-2">Classic Camera</h3>
+                <p class="text-slate-500 text-sm mb-4">Capture every moment in stunning detail.</p>
+                <div class="flex justify-between items-center">
+                    <span class="text-2xl font-bold">₹45,000</span>
+                    <button onclick="buyProduct(45000)"
+                        class="bg-blue-600 text-white px-6 py-2 rounded-lg font-bold hover:bg-blue-700 transition-colors">
+                        Buy Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Loyalty Widget Script -->
+    <script type="text/javascript">
+        var thriveWidgetCode = 'demo-store';
+        var ztUserData = {};
+    </script>
+    <script id="thrive_script" src="/static/widget.js?v=4" data-store-id="demo-store"
+        data-api-url="http://localhost:8000"></script>
+
+    <script>
+        function simulateLogin() {
+            // Populate the global ztUserData object
+            ztUserData['za_email_id'] = 'customer@example.com';
+            ztUserData['user_unique_id'] = 'USER_12345';
+            ztUserData['phone'] = '+15550123456'; // Optional but recommended
+            ztUserData['dob'] = '1990-01-01'; // Optional but recommended
+
+            // Identify user to the loyalty platform
+            if (window.Thrive) {
+                window.Thrive.identify(ztUserData);
+
+                // UI updates for the demo page
+                document.getElementById('user-status').innerText = ztUserData['za_email_id'];
+                alert('Logged in as ' + ztUserData['za_email_id'] + '. Your activities will now earn points!');
+            }
+        }
+
+        async function buyProduct(amount) {
+            if (window.Thrive) {
+                const result = await window.Thrive.trackPurchase(amount);
+                console.log('Purchase tracked:', result);
+                alert('Purchase successful! ₹' + amount + ' spent. Points added to your account.');
+            } else {
+                alert('Purchase successful! (Loyalty widget not loaded)');
+            }
+        }
+    </script>
+</body>
+
+</html>

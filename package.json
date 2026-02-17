@@ -1,0 +1,17 @@
+{
+  "name": "asg-loyalty-platform",
+  "version": "1.0.0",
+  "description": "ASG Loyalty Management Platform",
+  "scripts": {
+    "build": "echo 'Building services...'",
+    "start": "echo 'Use docker-compose for local development'",
+    "dev": "echo 'Use docker-compose for local development'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GuideXR/asg-loyalty-platform.git"
+  },
+  "keywords": ["loyalty", "platform", "fastapi", "nextjs"],
+  "author": "GuideXR",
+  "license": "MIT"
+}
