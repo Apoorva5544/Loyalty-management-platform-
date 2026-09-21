@@ -211,5 +211,3 @@ For support and questions:
 - Review the deployment guides in the repository
 
 ---
-
-**Built with ❤️ using FastAPI, Next.js, and modern web technologies**
